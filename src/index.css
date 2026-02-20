@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: applies dark: variants when <html> has .dark class */
+@variant dark (&:where(.dark, .dark *));
+
+/* Per Diem brand tokens */
+@theme {
+  --color-brand: #0171EA;
+  --color-brand-dark: #005fcf;
+  --color-brand-navy: #002752;
+  --color-brand-light: #E9F3FF;
+  --font-sans: Inter, system-ui, sans-serif;
+}
+
+/* Custom utilities */
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Base resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
